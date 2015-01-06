@@ -27,7 +27,7 @@
       var ref = new Firebase(URL);
       var key = ref.child('clublist-request').push({ index: index, type: type, query: query }).name();
       console.log('search', key, { index: index, type: type, query: query });
-      ref.child('clublist-response'+key).on('value', showResults);
+      ref.child('clublist-response/'+key).on('value', showResults);
    }
 
    function showResults(snap) {
