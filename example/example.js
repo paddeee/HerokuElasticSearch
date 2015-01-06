@@ -6,7 +6,7 @@
    /**====== SET ME =====**/
    /**====== SET ME =====**/
    /**====== SET ME =====**/
-   var URL = 'https://INSTANCE.firebaseio.com';
+   var URL = 'https://incandescent-heat-3687.firebaseio.com/search';
 
    // handle form submits
    $('form').on('submit', function(e) {
@@ -24,22 +24,22 @@
 
    // display search results
    function doSearch(index, type, query) {
-      var ref = new Firebase(URL+'/search');
-      var key = ref.child('request').push({ index: index, type: type, query: query }).name();
+      var ref = new Firebase(URL);
+      var key = ref.child('clublist-request').push({ index: index, type: type, query: query }).name();
       console.log('search', key, { index: index, type: type, query: query });
-      ref.child('response/'+key).on('value', showResults);
+      ref.child('clublist-/'+key).on('value', showResults);
    }
 
    function showResults(snap) {
       if( snap.val() === null ) { return; } // wait until we get data
       var dat = snap.val();
-//      console.log('result', snap.name(), snap.val());
+      console.log('result', snap.name(), snap.val());
       snap.ref().off('value', showResults);
       snap.ref().remove();
       var $pair = $('#results')
-         .text(JSON.stringify(dat, null, 2))
-         .add( $('#total').text(dat.total) )
-         .removeClass('error zero');
+          .text(JSON.stringify(dat, null, 2))
+          .add( $('#total').text(dat.total) )
+          .removeClass('error zero');
       if( dat.error ) {
          $pair.addClass('error');
       }
