@@ -67,7 +67,7 @@ exports.paths = [
       path:  "clublist",
       index: "firebase",
       type:  "club",
-      fields: ['location', 'name']
+      fields: ['id','latitude','longitude','location', 'name']
    }
 ];
 
