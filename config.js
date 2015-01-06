@@ -19,7 +19,7 @@ exports.FB_URL   = 'https://' + firebaseName + '.firebaseio.com/';
 exports.FB_TOKEN = firebaseToken || null;
 
 // The path in your Firebase where clients will write search requests
-exports.FB_REQ   = process.env.FB_REQ || 'search/clublist-request';
+exports.FB_REQ   = process.env.FB_REQ || 'clublist-request';
 
 // The path in your Firebase where this app will write the results
 exports.FB_RES   = process.env.FB_RES || 'search/clublist-response';
