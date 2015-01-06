@@ -6,7 +6,7 @@
    /**====== SET ME =====**/
    /**====== SET ME =====**/
    /**====== SET ME =====**/
-   var URL = 'https://INSTANCE.firebaseio.com';
+   var URL = 'https://incandescent-heat-3687.firebaseio.com';
 
    // handle form submits
    $('form').on('submit', function(e) {
@@ -25,9 +25,9 @@
    // display search results
    function doSearch(index, type, query) {
       var ref = new Firebase(URL+'/search');
-      var key = ref.child('request').push({ index: index, type: type, query: query }).name();
+      var key = ref.child('clublist-request').push({ index: index, type: type, query: query }).name();
       console.log('search', key, { index: index, type: type, query: query });
-      ref.child('response/'+key).on('value', showResults);
+      ref.child('clublist-/'+key).on('value', showResults);
    }
 
    function showResults(snap) {
@@ -67,6 +67,6 @@
    // display raw data for reference
    new Firebase(URL).on('value', setRawData);
    function setRawData(snap) {
-      $('#raw').text(JSON.stringify(snap.val(), null, 2));
+      //$('#raw').text(JSON.stringify(snap.val(), null, 2));
    }
 })(jQuery);
