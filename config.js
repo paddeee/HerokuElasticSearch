@@ -12,17 +12,17 @@ var firebaseName = 'incandescent-heat-3687';
 var firebaseToken = 'C7rv4Rqin056vwjPiirrPmxGjaNw6fU9X5yl98bW';
 
 // Your Firebase instance where we will listen and write search results
-exports.FB_URL   = 'https://' + firebaseName + '.firebaseio.com/search/';
+exports.FB_URL   = 'https://' + firebaseName + '.firebaseio.com/';
 
 // Either your Firebase secret or a token you create with no expiry, used to authenticate
 // To Firebase and access search data.
 exports.FB_TOKEN = firebaseToken || null;
 
 // The path in your Firebase where clients will write search requests
-exports.FB_REQ   = process.env.FB_REQ || 'clublist-request';
+exports.FB_REQ   = process.env.FB_REQ || 'search/clublist-request';
 
 // The path in your Firebase where this app will write the results
-exports.FB_RES   = process.env.FB_RES || 'clublist-response';
+exports.FB_RES   = process.env.FB_RES || 'search/clublist-response';
 
 /** ElasticSearch Settings
  *********************************************/
